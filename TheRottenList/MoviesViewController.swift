@@ -12,6 +12,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationTitle: UINavigationItem!
+    @IBOutlet weak var networkMessageLabel: UILabel!
 
     var movies:[NSDictionary] = []
     var refreshControl:UIRefreshControl!
@@ -40,14 +41,19 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         var url = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=mubw7shrmp96ejf9huvdz33p"
         var request = NSURLRequest(URL: NSURL(string: url))
 
-
+        networkMessageLabel.hidden = true
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-            var object =  NSJSONSerialization.JSONObjectWithData(data, options:nil, error: nil) as NSDictionary
+            let httpResponse = response as NSHTTPURLResponse
+            if error != nil || httpResponse.statusCode != 200{
+                self.networkMessageLabel.hidden = false
+                self.networkMessageLabel.text = "Network Error."
+            } else {
+                var object =  NSJSONSerialization.JSONObjectWithData(data, options:nil, error: nil) as NSDictionary
+                self.movies = object["movies"] as [NSDictionary]
 
-            self.movies = object["movies"] as [NSDictionary]
+                self.tableView.reloadData()
+            }
 
-
-            self.tableView.reloadData()
             self.view.hideActivityView()
             self.refreshControl.endRefreshing()
         }

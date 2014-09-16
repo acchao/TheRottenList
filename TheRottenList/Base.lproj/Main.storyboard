@@ -15,7 +15,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="103" sectionHeaderHeight="22" sectionFooterHeight="22" id="sTw-Bw-EDP">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.68900730298913038" green="0.68900730298913038" blue="0.68900730298913038" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="0.57390030570652173" green="0.57390030570652173" blue="0.57390030570652173" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.25443699048913049" green="0.25443699048913049" blue="0.25443699048913049" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="103" id="4FF-ei-Xk3" customClass="MovieCell" customModule="TheRottenList" customModuleProvider="target">
@@ -62,12 +63,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network Error." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ske-Vn-eZL">
+                                <rect key="frame" x="0.0" y="65" width="320" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.85041610054347827" green="0.51001082122985064" blue="0.35334909797019531" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.236328125" green="0.236328125" blue="0.236328125" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.74980893342391308" green="0.74980893342391308" blue="0.74980893342391308" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="m21-Q4-d9X"/>
                     <connections>
                         <outlet property="navigationTitle" destination="m21-Q4-d9X" id="vG2-qH-cko"/>
+                        <outlet property="networkMessageLabel" destination="Ske-Vn-eZL" id="Frn-51-spi"/>
                         <outlet property="tableView" destination="sTw-Bw-EDP" id="k76-3q-7jy"/>
                     </connections>
                 </viewController>
