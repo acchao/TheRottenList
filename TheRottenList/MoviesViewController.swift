@@ -23,12 +23,15 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
         var url = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=mubw7shrmp96ejf9huvdz33p"
         var request = NSURLRequest(URL: NSURL(string: url))
+        view.showActivityViewWithLabel("Loading...")
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             var object =  NSJSONSerialization.JSONObjectWithData(data, options:nil, error: nil) as NSDictionary
 
             self.movies = object["movies"] as [NSDictionary]
 
+
             self.tableView.reloadData()
+            self.view.hideActivityView()
         }
     }
 
@@ -69,6 +72,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             var indexPath = tableView.indexPathForSelectedRow() as NSIndexPath!
             var vc = segue.destinationViewController as MovieDetailsViewController
             vc.movie = movies[indexPath.row] as NSDictionary
+            tableView.deselectRowAtIndexPath(indexPath, animated: false)
         }
     }
 }
