@@ -11,13 +11,13 @@ import UIKit
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var Title: UINavigationItem!
+    @IBOutlet weak var navigationTitle: UINavigationItem!
     var movies:[NSDictionary] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        Title.title = "Movies"
+        navigationTitle.title = "Movies"
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -49,6 +49,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
         cell.titleLabel.text = movie["title"] as? String
         cell.synopsisLabel.text = movie["synopsis"] as? String
+        cell.ratingLabel.text = movie["mpaa_rating"] as? String
 
         var posters = movie["posters"] as NSDictionary
         var posterUrl = posters["thumbnail"] as String
@@ -58,14 +59,16 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "movieDetailsSegue" {
+            var indexPath = tableView.indexPathForSelectedRow() as NSIndexPath!
+            var vc = segue.destinationViewController as MovieDetailsViewController
+            vc.movie = movies[indexPath.row] as NSDictionary
+        }
     }
-    */
-
 }
