@@ -12,7 +12,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationTitle: UINavigationItem!
+
     var movies:[NSDictionary] = []
+    var refreshControl:UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +23,24 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.delegate = self
         tableView.dataSource = self
 
+
+        view.showActivityViewWithLabel("Loading...")
+        reloadTableView(true)
+
+        //set up pull to refresh
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refersh")
+        self.refreshControl.addTarget(self, action: "reloadTableView:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
+    }
+
+    // Reloads the Table View with Box Office Movies
+    func reloadTableView(sender:AnyObject)
+    {
         var url = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=mubw7shrmp96ejf9huvdz33p"
         var request = NSURLRequest(URL: NSURL(string: url))
-        view.showActivityViewWithLabel("Loading...")
+
+
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             var object =  NSJSONSerialization.JSONObjectWithData(data, options:nil, error: nil) as NSDictionary
 
@@ -32,6 +49,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
             self.tableView.reloadData()
             self.view.hideActivityView()
+            self.refreshControl.endRefreshing()
         }
     }
 
