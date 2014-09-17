@@ -43,8 +43,15 @@ class MovieDetailsViewController: UIViewController {
         synopsis.text = movie["synopsis"] as String
 
         var posters = movie["posters"] as NSDictionary
-        var posterUrl = posters["profile"] as String
+        var posterUrl = posters["original"] as String
+
+        // use the low res image first for faster display
+        // but this isn't ideal since we already grabbed the image in the previous controller
         poster.setImageWithURL(NSURL(string: posterUrl))
+
+        // use the correct high rest img url
+        let fixedPosterUrl = posterUrl.stringByReplacingOccurrencesOfString("tmb", withString: "ori")
+        poster.setImageWithURL(NSURL(string: fixedPosterUrl))
     }
 
     override func didReceiveMemoryWarning() {
