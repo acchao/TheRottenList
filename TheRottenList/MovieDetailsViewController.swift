@@ -17,6 +17,7 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var criticsScoreLabel: UILabel!
     @IBOutlet weak var audienceScoreLabel: UILabel!
+    @IBOutlet weak var detailsContainerView: UIView!
 
     var movie: NSDictionary = {return NSDictionary()}()
 
@@ -41,6 +42,7 @@ class MovieDetailsViewController: UIViewController {
         criticsScoreLabel.text = "Critics Score: \(criticsScore)"
         audienceScoreLabel.text = "Audience Score: \(audienceScore)"
         synopsis.text = movie["synopsis"] as? String
+        synopsis.sizeToFit()
 
         var posters = movie["posters"] as NSDictionary
         var posterUrl = posters["original"] as String
@@ -52,6 +54,16 @@ class MovieDetailsViewController: UIViewController {
         // use the correct high rest img url
         let fixedPosterUrl = posterUrl.stringByReplacingOccurrencesOfString("tmb", withString: "ori")
         poster.setImageWithURL(NSURL(string: fixedPosterUrl))
+
+        detailsContainerView.sizeToFit()
+
+        var sizeOfContent: CGFloat = 0
+        for subview in view.subviews {
+            sizeOfContent += subview.frame.size.height;
+        }
+
+        // Set content size for scroll view
+        movieDetailsView.contentSize = CGSizeMake(movieDetailsView.frame.size.width, sizeOfContent);
     }
 
     override func didReceiveMemoryWarning() {
