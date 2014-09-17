@@ -82,7 +82,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         var posterUrl = posters["thumbnail"] as String
 
         cell.posterView.setImageWithURL(NSURL(string: posterUrl))
-
         return cell
     }
 

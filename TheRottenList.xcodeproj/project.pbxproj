@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4965039919C6F2EE004A769D /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965039819C6F2EE004A769D /* MovieDetailsViewController.swift */; };
+		496503A719C925E1004A769D /* RottenNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496503A619C925E1004A769D /* RottenNavigationController.swift */; };
 		49EA3CC019C6B6FF00C93EB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EA3CBF19C6B6FF00C93EB9 /* AppDelegate.swift */; };
 		49EA3CC519C6B6FF00C93EB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49EA3CC319C6B6FF00C93EB9 /* Main.storyboard */; };
 		49EA3CC719C6B6FF00C93EB9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49EA3CC619C6B6FF00C93EB9 /* Images.xcassets */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		4965039519C6E110004A769D /* TheRottenList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TheRottenList-Bridging-Header.h"; sourceTree = "<group>"; };
 		4965039819C6F2EE004A769D /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		496503A619C925E1004A769D /* RottenNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RottenNavigationController.swift; sourceTree = "<group>"; };
 		49EA3CBA19C6B6FF00C93EB9 /* TheRottenList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheRottenList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49EA3CBE19C6B6FF00C93EB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49EA3CBF19C6B6FF00C93EB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				49EA3CDF19C6C8D700C93EB9 /* MoviesViewController.swift */,
 				4965039819C6F2EE004A769D /* MovieDetailsViewController.swift */,
+				496503A619C925E1004A769D /* RottenNavigationController.swift */,
 				49EA3CE119C6D0ED00C93EB9 /* MovieCell.swift */,
 				49EA3CBF19C6B6FF00C93EB9 /* AppDelegate.swift */,
 				49EA3CC319C6B6FF00C93EB9 /* Main.storyboard */,
@@ -272,6 +275,7 @@
 				4965039919C6F2EE004A769D /* MovieDetailsViewController.swift in Sources */,
 				49EA3CC019C6B6FF00C93EB9 /* AppDelegate.swift in Sources */,
 				49EA3CE019C6C8D700C93EB9 /* MoviesViewController.swift in Sources */,
+				496503A719C925E1004A769D /* RottenNavigationController.swift in Sources */,
 				49EA3CE219C6D0ED00C93EB9 /* MovieCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

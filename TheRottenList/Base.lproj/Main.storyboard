@@ -150,10 +150,10 @@
             </objects>
             <point key="canvasLocation" x="1084" y="128"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Rotten Navigation Controller-->
         <scene sceneID="dCz-Eu-dyd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gjI-dC-i4b" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gjI-dC-i4b" customClass="RottenNavigationController" customModule="TheRottenList" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fgg-Xq-mT8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

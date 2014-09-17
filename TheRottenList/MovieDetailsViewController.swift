@@ -40,7 +40,7 @@ class MovieDetailsViewController: UIViewController {
         var audienceScore = ratings["audience_score"] as NSNumber
         criticsScoreLabel.text = "Critics Score: \(criticsScore)"
         audienceScoreLabel.text = "Audience Score: \(audienceScore)"
-        synopsis.text = movie["synopsis"] as String
+        synopsis.text = movie["synopsis"] as? String
 
         var posters = movie["posters"] as NSDictionary
         var posterUrl = posters["original"] as String
