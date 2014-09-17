@@ -25,4 +25,4 @@ I also messed around with scrollviews as a nonlisted optional task.
 
 Walkthrough of all user stories:
 
-![Video Walkthrough](anim_rotten_tomatoes.gif)
+![Video Walkthrough](Assignment1.gif)
